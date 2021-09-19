@@ -1,6 +1,8 @@
-﻿#include <bangtal>
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include <bangtal>
 #include <windows.h>
 #include <time.h>
+#include <stdlib.h>
 
 using namespace bangtal;
 
@@ -61,7 +63,8 @@ int main()
 	// auto game_hard = Scene::create("게임창", "Images/스파이더맨_선택창.jpg");
 	bool diff_selected = false; // 난이도 선택을 이미 했는지
 	int clear_time = 0; // 1초씩 감소시키면서 클리어까지 걸린 시간 체크
-	char time_message[40] = "초 남기고 클리어하셨습니다!";
+	char time_message[4] = { 0, };
+	char time_finish[40] = "초 남기고 클리어하셨습니다!";
 
 	struct puzzle p[12] = {
 		{ -480, -240, Object::create("Images/원본_20.png", game_easy, -480, -240) },
@@ -182,18 +185,10 @@ int main()
 				p[blank_index].puzzle_piece->locate(game_easy, temp_x, temp_y);
 				p[blank_index].x = temp_x;
 				p[blank_index].y = temp_y;
-				if (check_clear(p, x_answer, y_answer))
+				if (check_clear(p, x_answer, y_answer)) // 남은 시간을 어떻게 출력할지 생각해보자.
 				{
-					showMessage("축하합니다! 클리어하셨습니다!"); 
-					while (!timer->onTimer())
-					{
-						timer->stop();
-						if (timer->onTimer())
-						{
-							timer->decrease(1.f);
-							clear_time++;
-						}
-					}
+					showMessage("축하합니다!\n"); 
+					timer->stop();
 				}
 			}
 			return 0;
@@ -212,8 +207,11 @@ int main()
 				p[blank_index].puzzle_piece->locate(game_easy, temp_x, temp_y);
 				p[blank_index].x = temp_x;
 				p[blank_index].y = temp_y;
-				if (check_clear(p, x_answer, y_answer))
-					showMessage("축하합니다! 클리어하셨습니다!"); // 타이머 출력할 방법 생각해보자.
+				if (check_clear(p, x_answer, y_answer)) // 남은 시간을 어떻게 출력할지 생각해보자.
+				{
+					showMessage("축하합니다!\n");
+					timer->stop();
+				}
 			}
 			return 0;
 			});
@@ -231,8 +229,11 @@ int main()
 				p[blank_index].puzzle_piece->locate(game_easy, temp_x, temp_y);
 				p[blank_index].x = temp_x;
 				p[blank_index].y = temp_y;
-				if (check_clear(p, x_answer, y_answer))
-					showMessage("축하합니다! 클리어하셨습니다!"); // 타이머 출력할 방법 생각해보자.
+				if (check_clear(p, x_answer, y_answer)) // 남은 시간을 어떻게 출력할지 생각해보자.
+				{
+					showMessage("축하합니다!\n");
+					timer->stop();
+				}
 			}
 			return 0;
 			});
@@ -250,8 +251,11 @@ int main()
 				p[blank_index].puzzle_piece->locate(game_easy, temp_x, temp_y);
 				p[blank_index].x = temp_x;
 				p[blank_index].y = temp_y;
-				if (check_clear(p, x_answer, y_answer))
-					showMessage("축하합니다! 클리어하셨습니다!"); // 타이머 출력할 방법 생각해보자.
+				if (check_clear(p, x_answer, y_answer)) // 남은 시간을 어떻게 출력할지 생각해보자.
+				{
+					showMessage("축하합니다!\n");
+					timer->stop();
+				}
 			}
 			return 0;
 			});
@@ -269,8 +273,11 @@ int main()
 				p[blank_index].puzzle_piece->locate(game_easy, temp_x, temp_y);
 				p[blank_index].x = temp_x;
 				p[blank_index].y = temp_y;
-				if (check_clear(p, x_answer, y_answer))
-					showMessage("축하합니다! 클리어하셨습니다!"); // 타이머 출력할 방법 생각해보자.
+				if (check_clear(p, x_answer, y_answer)) // 남은 시간을 어떻게 출력할지 생각해보자.
+				{
+					showMessage("축하합니다!\n");
+					timer->stop();
+				}
 			}
 			return 0;
 			});
@@ -288,8 +295,11 @@ int main()
 				p[blank_index].puzzle_piece->locate(game_easy, temp_x, temp_y);
 				p[blank_index].x = temp_x;
 				p[blank_index].y = temp_y;
-				if (check_clear(p, x_answer, y_answer))
-					showMessage("축하합니다! 클리어하셨습니다!"); // 타이머 출력할 방법 생각해보자.
+				if (check_clear(p, x_answer, y_answer)) // 남은 시간을 어떻게 출력할지 생각해보자.
+				{
+					showMessage("축하합니다!\n");
+					timer->stop();
+				}
 			}
 			return 0;
 			});
@@ -307,8 +317,11 @@ int main()
 				p[blank_index].puzzle_piece->locate(game_easy, temp_x, temp_y);
 				p[blank_index].x = temp_x;
 				p[blank_index].y = temp_y;
-				if (check_clear(p, x_answer, y_answer))
-					showMessage("축하합니다! 클리어하셨습니다!"); // 타이머 출력할 방법 생각해보자.
+				if (check_clear(p, x_answer, y_answer)) // 남은 시간을 어떻게 출력할지 생각해보자.
+				{
+					showMessage("축하합니다!\n");
+					timer->stop();
+				}
 			}
 			return 0;
 			});
@@ -326,8 +339,11 @@ int main()
 				p[blank_index].puzzle_piece->locate(game_easy, temp_x, temp_y);
 				p[blank_index].x = temp_x;
 				p[blank_index].y = temp_y;
-				if (check_clear(p, x_answer, y_answer))
-					showMessage("축하합니다! 클리어하셨습니다!"); // 타이머 출력할 방법 생각해보자.
+				if (check_clear(p, x_answer, y_answer)) // 남은 시간을 어떻게 출력할지 생각해보자.
+				{
+					showMessage("축하합니다!\n");
+					timer->stop();
+				}
 			}
 			return 0;
 			});
@@ -345,8 +361,11 @@ int main()
 				p[blank_index].puzzle_piece->locate(game_easy, temp_x, temp_y);
 				p[blank_index].x = temp_x;
 				p[blank_index].y = temp_y;
-				if (check_clear(p, x_answer, y_answer))
-					showMessage("축하합니다! 클리어하셨습니다!"); // 타이머 출력할 방법 생각해보자.
+				if (check_clear(p, x_answer, y_answer)) // 남은 시간을 어떻게 출력할지 생각해보자.
+				{
+					showMessage("축하합니다!\n");
+					timer->stop();
+				}
 			}
 			return 0;
 			});
@@ -364,8 +383,11 @@ int main()
 				p[blank_index].puzzle_piece->locate(game_easy, temp_x, temp_y);
 				p[blank_index].x = temp_x;
 				p[blank_index].y = temp_y;
-				if (check_clear(p, x_answer, y_answer))
-					showMessage("축하합니다! 클리어하셨습니다!"); // 타이머 출력할 방법 생각해보자.
+				if (check_clear(p, x_answer, y_answer)) // 남은 시간을 어떻게 출력할지 생각해보자.
+				{
+					showMessage("축하합니다!\n");
+					timer->stop();
+				}
 			}
 			return 0;
 			});
@@ -383,8 +405,11 @@ int main()
 				p[blank_index].puzzle_piece->locate(game_easy, temp_x, temp_y);
 				p[blank_index].x = temp_x;
 				p[blank_index].y = temp_y;
-				if (check_clear(p, x_answer, y_answer))
-					showMessage("축하합니다! 클리어하셨습니다!"); // 타이머 출력할 방법 생각해보자.
+				if (check_clear(p, x_answer, y_answer)) // 남은 시간을 어떻게 출력할지 생각해보자.
+				{
+					showMessage("축하합니다!\n");
+					timer->stop();
+				}
 			}
 			return 0;
 			});
@@ -429,4 +454,3 @@ int main()
 
 
 	}
-}
